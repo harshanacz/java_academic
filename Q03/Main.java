@@ -7,11 +7,25 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         ArrayList<HypotenuseFinder> triangles = new ArrayList<>();
         
-        System.out.println("value a : ");
-        double valueA = scanner.nextDouble();
-        System.out.println("value b : ");
-        double valueB = scanner.nextDouble();
-        triangles.add(new HypotenuseFinder(valueA, valueB));
+        
+
+        boolean processing = true;
+
+        while (processing){
+            System.out.println("value a : ");
+            double valueA = scanner.nextDouble();
+            System.out.println("value b : ");
+            double valueB = scanner.nextDouble();
+            triangles.add(new HypotenuseFinder(valueA, valueB));
+
+            scanner.nextLine(); 
+
+            System.out.println("Want continue (Y/N) :");
+            String isContinue = scanner.nextLine();
+            if(!isContinue.equalsIgnoreCase("Y")){
+                processing = false;
+            }
+        }
 
 
         for (HypotenuseFinder triangle : triangles ){
